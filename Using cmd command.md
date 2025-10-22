@@ -116,9 +116,28 @@ SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth ORDER BY
 ```
 SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth HAVING COUNT(*) >= 30 ORDER BY country_of_birth;
 ```
-
-
-
+<br><br>
+15. How to use 'Min, Max, and Average'
+```
+SELECT MAX(price) FROM car;
+SELECT MIN(price) FROM car;
+SELECT AVG(price) FROM car;
+SELECT ROUND(AVG(price)) FROM car;
+SELECT make, model, MAX(price), MIN(price) FROM car GROUP BY make, model;
+```
+<br><br>
+16. How to use 'Sum'
+```
+SELECT SUM(price) FROM car;
+SELECT make, SUM(price) FROM car GROUP BY make;
+```
+<br><br>
+17. Some of the arithmetic operators provided by Postgres
+```
+SELECT id, make, model, price, ROUND(price * .10, 2) FROM car;
+SELECT id, make, model, price, ROUND(price * .10, 2), ROUND(price - (price * .10)) FROM car;
+```
+<br><br>
 
 
 
