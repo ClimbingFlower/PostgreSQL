@@ -10,6 +10,11 @@ http://www.postgres.cn/docs/current/index.html
 psql -h 127.0.0.1 -p 5432 -U postgres
 ```
 <br><br>
+3. How to create/delete database
+```
+CREATE DATABASE [Name];
+DROP DATABASE [Name];
+
 3. How to create table with Postgres
 ```
 CREATE TABLE person (
@@ -18,5 +23,5 @@ CREATE TABLE person (
   last_name VARCHAR(50),
   gender VARCHAR(6),
   data_of_birth TIMESTAMP,
-)
+);
 ```
