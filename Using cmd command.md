@@ -1,6 +1,10 @@
 ### Using cmd command to control PostgreSQL
 <br>
-
+0. Clear Screen
+```
+\! cls
+```
+<br><br>
 1. PostgreSQL Documentation
 ```
 http://www.postgres.cn/docs/current/index.html
