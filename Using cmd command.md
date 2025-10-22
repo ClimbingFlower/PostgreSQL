@@ -1,5 +1,6 @@
 ### Using cmd command to control PostgreSQL
-<br><br>
+<br>
+
 1. PostgreSQL Documentation
 ```
 http://www.postgres.cn/docs/current/index.html
@@ -14,8 +15,9 @@ psql -h 127.0.0.1 -p 5432 -U postgres
 ```
 CREATE DATABASE [Name];
 DROP DATABASE [Name];
-
-3. How to create table with Postgres
+```
+<br><br>
+4. How to create table with Postgres
 ```
 CREATE TABLE person (
   id int,
@@ -25,3 +27,37 @@ CREATE TABLE person (
   data_of_birth TIMESTAMP,
 );
 ```
+<br><br>
+5. How to insert records into tables
+```
+INSERT INTO person (
+  first_name,
+  last_name,
+  gender,
+  data_of_birth)
+VALUES ('Anne', 'Smith', 'FEMALE', DATE'1988-01-09');
+```
+```
+INSERT INTO person (
+  first_name,
+  last_name,
+  gender,
+  data_of_birth,
+  email)
+VALUES ('Jake', 'Jones', 'MALE', DATE'1990-01-10', 'Jake@gmail.com');
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
