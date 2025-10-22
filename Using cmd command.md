@@ -51,6 +51,47 @@ INSERT INTO person (
   email)
 VALUES ('Jake', 'Jones', 'MALE', DATE'1990-01-10', 'Jake@gmail.com');
 ```
+<br><br>
+5. How to select rows from a table
+```
+# SELECT [Row Name] From person;
+SELECT first_name FROM person;
+```
+<br><br>
+6. How to sort our data using the order by keyword
+```
+SELECT * FROM person ORDER BY country_of_birth ASC/DESC;
+```
+<br><br>
+7. How to select distinct row from a table (order)
+```
+SELECT DISTINCT country_of_birth FROM person ORDER BY country_of_birth ASC/DESC;
+```
+<br><br>
+8. How to use 'WHERE' cluase
+```
+SELECT * FROM person WHERE gender = 'Female';
+SELECT * FROM person WHERE gender = 'Male' and (country_of_birth = 'China' OR country_of_birth = 'Japan');
+```
+<br><br>
+9. How to use 'Limit, Offset, and Fetch'
+```
+SELECT * FROM person LIMIT 10;
+SELECT * FROM person OFFSET 5 LIMIT 10;
+SELECT * FROM person OFFSET 5; ;
+SELECT * FROM person OFFSET 5 FETCH FIRST 3 ROW ONLY;
+```
+<br><br>
+10. How to use 'In'
+```
+SELECT * FROM person WHERE country_of_birth IN ('Japan', 'Serbia', 'France');
+SELECT * FROM person WHERE country_of_birth IN ('Japan', 'Serbia', 'France') ORDER BY country_of_birth;
+```
+<br><br>
+11. How to use 'Between'
+```
+SELECT * FROM person WHERE date_of_birth BETWEEN DATE '2002-01-01' AND '2002-01-01';
+```
 
 
 
