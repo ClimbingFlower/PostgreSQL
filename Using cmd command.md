@@ -90,10 +90,32 @@ SELECT * FROM person WHERE country_of_birth IN ('Japan', 'Serbia', 'France') ORD
 <br><br>
 11. How to use 'Between'
 ```
-SELECT * FROM person WHERE date_of_birth BETWEEN DATE '2002-01-01' AND '2002-01-01';
+SELECT * FROM person WHERE date_of_birth BETWEEN DATE '2002-01-01' AND '2002-12-31';
+SELECT * FROM person WHERE date_of_birth BETWEEN DATE '2002-01-01' AND '2002-12-31' ORDER BY date_of_birth;
 ```
+<br><br>
+12. How to use 'Like and iLike'
+```
+SELECT * FROM person WHERE email LIKE '%.com';
+SELECT * FROM person WHERE email LIKE '%bloomber.com';
+SELECT * FROM person WHERE email LIKE '%google%';
+SELECT * FROM person WHERE email LIKE '________@%';
+/* eight '_' */
+SELECT * FROM person WHERE country_of_birth ILIKE 'p%';
+```
+<br><br>
+13. How to use 'Group by'
 
-
+This is very powerful, and basically allows us to group our data based on a column.
+```
+SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth;
+SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth ORDER BY COUNT DESC;
+```
+<br><br>
+14. How to use 'Group having'
+```
+SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth HAVING COUNT(*) > 5 ORDER BY country_of_birth;
+```
 
 
 
