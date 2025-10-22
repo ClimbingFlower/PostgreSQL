@@ -1,5 +1,6 @@
 ### Using cmd command to control PostgreSQL
 <br>
+
 0. Clear Screen
 ```
 \! cls
