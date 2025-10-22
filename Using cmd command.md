@@ -135,9 +135,83 @@ SELECT make, SUM(price) FROM car GROUP BY make;
 17. Some of the arithmetic operators provided by Postgres
 ```
 SELECT id, make, model, price, ROUND(price * .10, 2) FROM car;
-SELECT id, make, model, price, ROUND(price * .10, 2), ROUND(price - (price * .10)) FROM car;
+SELECT id, make, model, price, ROUND(price * .10, 2), ROUND(price - (price * .10), 2) FROM car;
 ```
 <br><br>
+18. use 'Alias'
+```
+SELECT id, make, model, price AS original_price, ROUND(price * .10, 2) AS ten_percent, ROUND(price - (price * .10), 2) AS discount_after_10_percent FROM car;
+```
+<br><br>
+19. How to use 'Coalesce'?<br>
+在table: person中，有许多成员的email项空缺，我们可以使用'Coalesce'为其填充内容为'Email not provided'
+```
+SELECT COALESCE(null, 1) AS number;
+SELECT COALESCE(email, 'Email not provided') FROM person;
+```
+<br><br>
+20. How to use 'Nullif'
+```
+SELECT NULLIF(10, 1);
+```
+<br><br>
+21. How to use 'Timestamps and Dates', 'Adding and Substraction with Dates'
+```
+SELECT NOW(); # 展示当前时间
+SELECT NOW()::DATE;
+SELECT NOW()::TIME;
+SELECT NOW() - INTERVAL '1 YEAR'; # 回到一年前
+SELECT NOW() - INTERVAL '20 YEAR'; # 回到20年前
+SELECT NOW() - INTERVAL '3 MONTHS'; # 回到3个月前
+# day/days, year/years both work
+```
+<br><br>
+22. How to use 'Extracting Fields'<br>
+It allow us to extract specific values from a date.
+```
+SELECT EXTRACT(CENTURY FROM NOW());
+SELECT EXTRACT(YEAR FROM NOW());
+SELECT EXTRACT(MONTH FROM NOW());
+SELECT EXTRACT(DAY FROM NOW());
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
