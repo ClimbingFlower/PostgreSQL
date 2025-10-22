@@ -1,9 +1,11 @@
 ### Common Windows CMD command
 <br>
-1. 查看当前路ing
+1. 查看当前路
+
 ```
 cd
 ```
+
 返回上一级
 ```
 cd ..
