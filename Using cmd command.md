@@ -223,13 +223,42 @@ ALTER TABLE person ADD CONSTRAINT unique_email_address UNIQUE (email);
 ```
 ALTER TABLE person ADD CONSTRAINT gender_constraint CHECK (gender = 'Female' OR gender = 'Male')
 ```
+<br><br>
+25. How to use 'Delete Records'
+```
+SELECT FROM person; # Delete all contents
+```
+<br><br>
+26. How to use 'Update' command
+```
+UPDATE person SET email = 'test@gmail.com' WHERE id = 1;
+UPDATE person SET first_name = 'Tang', last_name = 'Tony', email = 'test@gmail.com' WHERE id = 2;
+```
+<br><br>
+27. On Conflict Do Nothing
+当我们试图添加两个id相同的成员，系统会报错；我们可以通过特定的指令避免系统报错
+```
+INSERT INTO person (id, first_name, last_name, gender, email, date_of_birth, country_of_birth) VALUES (1, 'Tom', 'Ukkie', 'Male', 'test@t.com', DATE '2004-12-30', 'Japan');
+INSERT INTO person (id, first_name, last_name, gender, email, date_of_birth, country_of_birth) VALUES (1, 'Tom', 'Ukkie', 'Male', 'test@t.com', DATE '2004-12-30', 'Japan') ON CONFLICT (id) DO NOTHING;
 
+```
+<br><br>
+28. Upsert
+```
+INSERT INTO person (id, first_name, last_name, gender, email, date_of_birth, country_of_birth) VALUES (1, 'Tom', 'Ukkie', 'Male', 'test@t.com', DATE '2004-12-30', 'Japan') ON CONFLICT (id) DO UPDATE SET; # 系统会报错，因为两个成员不能共用一个id
+INSERT INTO person (id, first_name, last_name, gender, email, date_of_birth, country_of_birth) VALUES (1, 'Tom', 'Ukkie', 'Male', 'test@bjut.edu.com', DATE '2004-12-30', 'Japan') ON CONFLICT (id) DO UPDATE SET email = EXCLUDED.email; # 通过这个指令我们可以看到，id = 1的成员的邮箱信息被更新了，我们也可以尝试更新其他信息
+```
+<br><br>
+29. Foreign keys, Joins, and Relationship// Adding Relationships Between Tables
+```
+person-car.sql
+```
+<br><br>
+30. Updating Foreign Keys Columns
+```
 
-
-
-
-
-
+```
+<br><br>
 
 
 
