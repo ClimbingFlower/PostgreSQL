@@ -174,12 +174,55 @@ SELECT EXTRACT(YEAR FROM NOW());
 SELECT EXTRACT(MONTH FROM NOW());
 SELECT EXTRACT(DAY FROM NOW());
 ```
+23. How to use 'Age function'
+```
+SELECT first_name, last_name, gender, country_of_birth, date_of_birth FROM person;
+SELECT first_name, last_name, gender, country_of_birth, date_of_birth, AGE(NOW(), date_of_birth) AS age FROM person;
+```
+<br><br>
+24. How to use 'Primary Keys'
+Primary Key: is a value in our column, which uniquely identifies a record in any table. And in thid course, what we are using as primary keys are numbers. 
 
-
-
-
-
-
+recall when we create the table:
+```
+create table person(
+  id BIGSERIAL NOT NULL PRIMARY KEY,
+  ...
+)
+```
+```
+SELECT * FROM person LIMIT 1;
+```
+如果我们尝试添加到id = 1
+```
+insert into person (id, first_name, last_name, email, gender, date_of_birth, country_of_birth) values (1, 'Art', 'Bleby', 'ableby0@reuters.com', 'Male', '2007-07-01', 'Tunisia');
+```
+我们会看到
+```
+ERROR: duplicate key value violates unique constraint 'person_pkey' ... Key(id)=(1) already exists.
+```
+当然我们也可以手动接解除这个限制：
+```
+ALTER TABLE person FROM CONSTRAINT person_pkey;
+```
+添加'Pirmary Key':
+```
+ALTER TABLE person ADD PRIMARY KEY (id);
+```
+<br><br>
+23. Learn about 'Unique Constraints'
+场景：我们不希望两个不同的成员的邮箱地址是一样的
+```
+SELECT email, count(*) FROM person GROUP BY email;
+SELECT email, count(*) FROM person GROUP BY email HAVING COUNT(*) > 1;
+ALTER TABLE person ADD CONSTRAINT unique_email_address UNIQUE (email);
+```
+<br><br>
+24. How to use 'Check'
+限定输入的内容，例如性别只能输入'Female'/'Male'
+```
+ALTER TABLE person ADD CONSTRAINT gender_constraint CHECK (gender = 'Female' OR gender = 'Male')
+```
 
 
 
